@@ -1,0 +1,209 @@
+:root {
+  --primary: #1976d2;
+  --accent: #ffca28;
+  --secondary: #424242;
+  --board-bg: #f8f9fa;
+  --bg: #fff;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 24px 0 rgba(25, 118, 210, 0.08);
+}
+
+body, html, #root {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 370px;
+  margin: 24px auto 0;
+  background: var(--board-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 32px 18px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mode-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.mode-label {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-right: 0.5em;
+  font-weight: 500;
+}
+.mode-select {
+  padding: 6px 12px;
+  min-width: 110px;
+  border-radius: 6px;
+  border: 1.5px solid var(--primary);
+  background: #fff;
+  color: var(--secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.mode-select:focus {
+  border-color: var(--accent);
+}
+
+.status-row {
+  min-height: 26px;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: 1.17rem;
+  font-weight: 600;
+  text-align: center;
+}
+.ttt-board {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 7px 0 rgba(25, 118, 210, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 12px 10px 12px;
+  margin: 0 auto 18px;
+}
+
+.board-row {
+  display: flex;
+}
+.ttt-square {
+  width: 68px;
+  height: 68px;
+  margin: 4px;
+  border: 2.2px solid var(--primary);
+  background: #fcfcfd;
+  color: var(--secondary);
+  font-size: 2.3rem;
+  font-weight: 700;
+  border-radius: 12px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px 0 rgba(25, 118, 210, 0.05);
+  transition: background 0.14s, color 0.2s;
+  position: relative;
+  user-select: none;
+}
+.ttt-square:hover,
+.ttt-square:focus {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--secondary);
+}
+.ttt-square.win {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.ttt-square:disabled {
+  cursor: default;
+  opacity: 1;
+  background: #ededed;
+  color: var(--secondary);
+}
+
+.controls-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 12px;
+  justify-content: center;
+  margin: 12px 0 0 0;
+}
+
+.primary-btn,
+.secondary-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 7px;
+  border: none;
+  transition: background 0.19s, color 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+  margin: 0 2px;
+}
+.primary-btn {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(25, 118, 210, 0.07);
+}
+.primary-btn:hover,
+.primary-btn:focus {
+  background: #1251a0;
+}
+
+.secondary-btn {
+  background: #fff;
+  color: var(--primary);
+  border: 1.7px solid var(--primary);
+}
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background: var(--accent);
+  color: var(--secondary);
+  border-color: var(--accent);
+}
+
+.credit-row {
+  margin-top: 24px;
+  color: var(--secondary);
+  font-size: 0.99rem;
+  text-align: center;
+  opacity: 0.95;
+}
+
+@media (max-width: 520px) {
+  .game-container {
+    padding: 22px 2vw 15px 2vw;
+    max-width: 94vw;
+    min-width: 0;
+  }
+  .ttt-square {
+    width: 48px;
+    height: 48px;
+    margin: 2.5px;
+    font-size: 1.36rem;
+    border-radius: 8px;
+  }
+  .title { font-size: 1.31rem;}
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background: var(--board-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
